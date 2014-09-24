@@ -37,15 +37,15 @@ diff -u -r -N u-boot-2014.07/board/d-link/dns320/dns320.c u-boot-2014.07-dns320/
 +#include <asm/arch/kirkwood.h>
 +#include <asm/arch/mpp.h>
 +#include <asm/arch/gpio.h>
-+#include "dnskw.h"
++#include "dns320.h"
 +
 +DECLARE_GLOBAL_DATA_PTR;
 +
 +int board_early_init_f(void)
 +{
 +	/* Gpio configuration */
-+	kw_config_gpio(DNSKW_OE_VAL_LOW, DNSKW_OE_VAL_HIGH,
-+			DNSKW_OE_LOW, DNSKW_OE_HIGH);
++	kw_config_gpio(DNS320_OE_VAL_LOW, DNS320_OE_VAL_HIGH,
++			DNS320_OE_LOW, DNS320_OE_HIGH);
 +
 +	/* Multi-Purpose Pins Functionality configuration */
 +	u32 kwmpp_config[] = {
@@ -103,9 +103,9 @@ diff -u -r -N u-boot-2014.07/board/d-link/dns320/dns320.c u-boot-2014.07-dns320/
 +	};
 +	kirkwood_mpp_conf(kwmpp_config, NULL);
 +
-+	kw_gpio_set_blink(DNSKW_GPIO_LED_POWER , 1);
++	kw_gpio_set_blink(DNS320_GPIO_LED_POWER , 1);
 +
-+	kw_gpio_set_value(DNSKW_GPIO_SATA0_EN , 1);
++	kw_gpio_set_value(DNS320_GPIO_SATA0_EN , 1);
 +	return 0;
 +}
 +
@@ -200,7 +200,7 @@ diff -u -r -N u-boot-2014.07/board/d-link/dns320/dns320.h u-boot-2014.07-dns320/
 +#endif /* CONFIG_BOARD_IS_DNS325 */
 +
 +/* DNS-320 specific configuration */
-+#ifdef CONFIG_BOARD_IS_DNS320
++#ifdef __DNS320_H
 +#define DNS320_OE_VAL_LOW		0x38000000	/* disable leds */
 +#define DNS320_OE_VAL_HIGH		0x00000808	/* disable leds */
 +#endif /* CONFIG_BOARD_IS_DNS320 */
