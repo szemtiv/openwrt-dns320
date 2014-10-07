@@ -6,7 +6,7 @@
 # See /LICENSE for more information.
 #
 
-RELEASE:=Chaos Calmer
+RELEASE:=Barrier Breaker
 PREP_MK= OPENWRT_BUILD= QUIET=0
 
 export IS_TTY=$(shell tty -s && echo 1 || echo 0)
@@ -42,8 +42,6 @@ unexport LPATH
 
 # make sure that a predefined CFLAGS variable does not disturb packages
 export CFLAGS=
-
-unexport TAR_OPTIONS
 
 ifneq ($(shell $(HOSTCC) 2>&1 | grep clang),)
   export HOSTCC_REAL?=$(HOSTCC)

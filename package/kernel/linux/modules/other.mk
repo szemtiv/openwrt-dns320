@@ -242,18 +242,14 @@ define KernelPackage/iio-ad799x
   KCONFIG:= \
 	CONFIG_AD799X_RING_BUFFER=y \
 	CONFIG_AD799X
-ifeq ($(strip $(call CompareKernelPatchVer,$(KERNEL_PATCHVER),ge,3.16.0)),1)
-  FILES:=$(LINUX_DIR)/drivers/iio/adc/ad799x.ko
-else
   FILES:=$(LINUX_DIR)/drivers/staging/iio/adc/ad799x.ko
-endif
   AUTOLOAD:=$(call AutoLoad,56,ad799x)
 endef
 
 define KernelPackage/iio-ad799x/description
  support for Analog Devices:
  ad7991, ad7995, ad7999, ad7992, ad7993, ad7994, ad7997, ad7998
- i2c analog to digital converters (ADC).
+ i2c analog to digital converters (ADC). WARNING! This driver is still staging!
 endef
 
 $(eval $(call KernelPackage,iio-ad799x))
@@ -503,24 +499,6 @@ define KernelPackage/pwm-gpio/description
 endef
 
 $(eval $(call KernelPackage,pwm-gpio))
-
-
-define KernelPackage/rtc-ds1307
-  SUBMENU:=$(OTHER_MENU)
-  TITLE:=Dallas/Maxim DS1307 (and compatible) RTC support
-  $(call AddDepends/rtc)
-  DEPENDS+=+kmod-i2c-core
-  KCONFIG:=CONFIG_RTC_DRV_DS1307
-  FILES:=$(LINUX_DIR)/drivers/rtc/rtc-ds1307.ko
-  AUTOLOAD:=$(call AutoProbe,rtc-ds1307)
-endef
-
-define KernelPackage/rtc-ds1307/description
- Kernel module for Dallas/Maxim DS1307/DS1337/DS1338/DS1340/DS1388/DS3231,
- Epson RX-8025 and various other compatible RTC chips connected via I2C.
-endef
-
-$(eval $(call KernelPackage,rtc-ds1307))
 
 
 define KernelPackage/rtc-ds1672
@@ -773,7 +751,7 @@ define KernelPackage/mvsdio
   AUTOLOAD:=$(call AutoProbe,mvsdio)
 endef
 
-define KernelPackage/mvsdio/description
+define KernelPacakge/mvsdio/description
  Kernel support for the Marvell SDIO controller
 endef
 
@@ -788,7 +766,7 @@ define KernelPackage/pps
   AUTOLOAD:=$(call AutoLoad,17,pps_core,1)
 endef
 
-define KernelPackage/pps/description
+define KernelPacakge/pps/description
  PPS (Pulse Per Second) is a special pulse provided by some GPS
  antennae. Userland can use it to get a high-precision time
  reference.
@@ -806,7 +784,7 @@ define KernelPackage/pps-gpio
   AUTOLOAD:=$(call AutoLoad,18,pps-gpio,1)
 endef
 
-define KernelPackage/pps-gpio/description
+define KernelPacakge/pps-gpio/description
  Support for a PPS source using GPIO. To be useful you must
  also register a platform device specifying the GPIO pin and
  other options, usually in your board setup.
@@ -824,7 +802,7 @@ define KernelPackage/ptp
   AUTOLOAD:=$(call AutoLoad,18,ptp,1)
 endef
 
-define KernelPackage/ptp/description
+define KernelPacakge/ptp/description
  The IEEE 1588 standard defines a method to precisely
  synchronize distributed clocks over Ethernet networks.
 endef
@@ -841,7 +819,7 @@ define KernelPackage/ptp-gianfar
   AUTOLOAD:=$(call AutoProbe,gianfar_ptp)
 endef
 
-define KernelPackage/ptp-gianfar/description
+define KernelPacakge/ptp-gianfar/description
  Kernel module for IEEE 1588 support for Freescale
  Gianfar Ethernet drivers
 endef

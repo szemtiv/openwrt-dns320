@@ -132,9 +132,6 @@ Image/InstallKernel/Template/ICONNECT=$(call Image/InstallKernel/Template,iconne
 Image/BuildKernel/Template/POGOE02=$(call Image/BuildKernel/Template,pogo_e02)
 Image/InstallKernel/Template/POGOE02=$(call Image/InstallKernel/Template,pogo_e02)
 
-Image/BuildKernel/Template/DNS320=$(call Image/BuildKernel/Template,dns320)
-Image/InstallKernel/Template/DNS320=$(call Image/InstallKernel/Template,dns320)
-
 define Image/BuildKernel
 	$(call Image/BuildKernel/Template/$(PROFILE))
 endef

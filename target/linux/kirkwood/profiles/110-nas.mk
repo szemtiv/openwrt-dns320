@@ -84,20 +84,3 @@ POGOE02_UBIFS_OPTS:="-m 2048 -e 126KiB -c 4096"
 POGOE02_UBI_OPTS:="-m 2048 -p 128KiB -s 512"
 
 $(eval $(call Profile,POGOE02))
-
-define Profile/DNS320
-  NAME:=D-Link DNS-320 NAS
-  PACKAGES:= \
-	kmod-ata-core kmod-ata-marvell-sata \
-	kmod-rtc-marvell kmod-usb2 kmod-usb-storage \
-	uboot-envtools
-endef
-
-define Profile/DNS320/Description
-  Package set compatible with D-Link DNS-320 NAS
-endef
-
-DNS320_UBIFS_OPTS:="-m 2048 -e 126KiB -c 4096"
-DNS320_UBI_OPTS:="-m 2048 -p 128KiB -s 512"
-
-$(eval $(call Profile,DNS320))

@@ -161,8 +161,7 @@ hostapd_set_bss_options() {
 		maxassoc max_inactivity disassoc_low_ack isolate auth_cache \
 		wps_pushbutton wps_label ext_registrar wps_pbc_in_m1 \
 		wps_device_type wps_device_name wps_manufacturer wps_pin \
-		macfilter ssid wmm hidden short_preamble rsn_preauth \
-		iapp_interface
+		macfilter ssid wmm hidden short_preamble rsn_preauth
 
 	set_default isolate 0
 	set_default maxassoc 0
@@ -218,9 +217,9 @@ hostapd_set_bss_options() {
 				auth_server auth_secret auth_port \
 				acct_server acct_secret acct_port \
 				dae_client dae_secret dae_port \
-				nasid ownip \
+				nasid iapp_interface ownip \
 				eap_reauth_period dynamic_vlan \
-				vlan_naming vlan_tagged_interface
+				vlan_tagged_interface
 
 			# legacy compatibility
 			[ -n "$auth_server" ] || json_get_var auth_server server

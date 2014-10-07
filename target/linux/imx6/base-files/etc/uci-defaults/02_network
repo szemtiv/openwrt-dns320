@@ -20,8 +20,7 @@ case "$board" in
 	ucidef_set_interface_lan 'eth0'
 	;;
 "gw53xx" |\
-"gw54xx" |\
-"gw552x")
+"gw54xx")
 	ucidef_set_interfaces_lan_wan 'eth0' 'eth1'
 	;;
 "wandboard")

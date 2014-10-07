@@ -7,7 +7,7 @@
 
 define Profile/generic
   NAME:=Generic Octeon board
-  PACKAGES:=
+  PACKAGES:=kmod-ath9k
 endef
 
 define Profile/generic/Description

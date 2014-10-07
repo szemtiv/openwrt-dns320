@@ -110,9 +110,7 @@ define Package/base-files/install
 
 	$(VERSION_SED) \
 		$(1)/etc/banner \
-		$(1)/etc/openwrt_version
-
-	$(VERSION_SED_SCRIPT) \
+		$(1)/etc/openwrt_version \
 		$(1)/etc/openwrt_release \
 		$(1)/etc/device_info
 

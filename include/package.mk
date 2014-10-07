@@ -14,7 +14,7 @@ PKG_INSTALL_DIR ?= $(PKG_BUILD_DIR)/ipkg-install
 PKG_MD5SUM ?= unknown
 PKG_BUILD_PARALLEL ?=
 PKG_USE_MIPS16 ?= 1
-PKG_CHECK_FORMAT_SECURITY ?= 1
+PKG_CHECK_FORMAT_SECURITY ?= 0
 
 ifneq ($(CONFIG_PKG_BUILD_USE_JOBSERVER),)
   MAKE_J:=$(if $(MAKE_JOBSERVER),$(MAKE_JOBSERVER) -j)
@@ -34,10 +34,8 @@ ifdef CONFIG_USE_MIPS16
     TARGET_CFLAGS += -mips16 -minterlink-mips16
   endif
 endif
-ifdef CONFIG_PKG_CHECK_FORMAT_SECURITY
-  ifeq ($(strip $(PKG_CHECK_FORMAT_SECURITY)),1)
-    TARGET_CFLAGS += -Wformat -Werror=format-security
-  endif
+ifeq ($(strip $(PKG_CHECK_FORMAT_SECURITY)),1)
+  TARGET_CFLAGS += -Wformat -Werror=format-security
 endif
 
 include $(INCLUDE_DIR)/prereq.mk

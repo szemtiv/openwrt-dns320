@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=u-boot
-PKG_VERSION:=2014.07
+PKG_VERSION:=2014.04
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
@@ -16,7 +16,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:= \
 	http://mirror2.openwrt.org/sources \
 	ftp://ftp.denx.de/pub/u-boot
-PKG_MD5SUM:=36d4bad687edcafa396fee607e505d4e
+PKG_MD5SUM:=6d2116d1385a66e9a59742caa9d62a54
 PKG_TARGETS:=bin
 
 PKG_BUILD_PARALLEL:=1
@@ -69,17 +69,13 @@ define uboot/sheevaplug
   TITLE:=U-Boot for SheevaPlug
 endef
 
-define uboot/dns320
-  TITLE:=U-Boot for D-Link DNS-320
-endef
-
 UBOOTS:= \
 	dockstar dockstar_second_stage \
 	goflexhome \
 	ib62x0 ib62x0_second_stage \
 	iconnect iconnect_second_stage \
 	pogo_e02 pogo_e02_second_stage \
-	sheevaplug dns320
+	sheevaplug
 
 define Package/uboot/template
 define Package/uboot-kirkwood-$(1)

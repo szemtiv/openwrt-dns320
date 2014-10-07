@@ -121,9 +121,6 @@ ramips_board_detect() {
 	*"ESR-9753")
 		name="esr-9753"
 		;;
-	*"EASYACC WI-STOR WIZARD 8800")
-		name="wizard8800"
-		;;
 	*"Edimax BR-6475nD")
 		name="br-6475nd"
 		;;
@@ -156,9 +153,6 @@ ramips_board_detect() {
 		;;
 	*"HILINK HLK-RM04")
 		name="hlk-rm04"
-		;;
-	*"HOOTOO HT-TM02")
-		name="ht-tm02"
 		;;
 	*"HAME MPR-A1")
  		name="mpr-a1"

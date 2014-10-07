@@ -190,7 +190,6 @@ platform_check_image() {
 	airgateway | \
 	airrouter | \
 	bullet-m | \
-	loco-m-xw | \
 	nanostation-m | \
 	rocket-m | \
 	nanostation-m-xw | \
@@ -226,7 +225,6 @@ platform_check_image() {
 		return 1
 		;;
 
-	qihoo-c301 | \
 	mynet-n600 | \
 	mynet-n750)
 		[ "$magic_long" != "5ea3a417" ] && {

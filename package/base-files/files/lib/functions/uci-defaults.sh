@@ -158,12 +158,11 @@ EOF
 ucidef_set_interface_raw() {
 	local cfg=$1
 	local ifname=$2
-	local proto=${3:-"none"}
 
 	uci batch <<EOF
 set network.$cfg='interface'
 set network.$cfg.ifname='$ifname'
-set network.$cfg.proto='$proto'
+set network.$cfg.proto='none'
 EOF
 }
 

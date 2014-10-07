@@ -4,7 +4,6 @@ include ../common.mk
 
 GCC_CONFIGURE += \
 	--with-headers=$(TOOLCHAIN_DIR)/include \
-	--disable-libsanitizer \
 	--enable-languages=$(TARGET_LANGUAGES) \
 	--enable-shared \
 	--enable-threads \
