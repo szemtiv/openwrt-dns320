@@ -69,13 +69,17 @@ define uboot/sheevaplug
   TITLE:=U-Boot for SheevaPlug
 endef
 
+define uboot/dns320
+  TITLE:=U-Boot for D-Link DNS-320
+endef
+
 UBOOTS:= \
 	dockstar dockstar_second_stage \
 	goflexhome \
 	ib62x0 ib62x0_second_stage \
 	iconnect iconnect_second_stage \
 	pogo_e02 pogo_e02_second_stage \
-	sheevaplug
+	sheevaplug dns320
 
 define Package/uboot/template
 define Package/uboot-kirkwood-$(1)
